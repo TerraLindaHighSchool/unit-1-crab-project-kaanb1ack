@@ -10,7 +10,7 @@ public class Lobster extends Actor
     //This method repeats the following actions 
     public void act()
     {
-        move(3);
+        move(15);
         turnAtEdge();
     }
 
