@@ -1,11 +1,11 @@
 import greenfoot.*;
 
 /**
- * This class defines a crab. Crabs live on the beach.
+ * This class defines a Sub. The Sub swims through the ocean
  * @author: Kaan Black
  * @version: Date
  */
-public class Crab extends Actor
+public class Sub extends Actor
 {
     //This method repeats the following actions 
     public void act()
@@ -28,19 +28,19 @@ public class Crab extends Actor
     private void checkKeyPress( )
     {
         
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("a"))
         {
             setLocation(getX() - 3, getY());
         }
-        if(Greenfoot.isKeyDown("right"))
+        if(Greenfoot.isKeyDown("d"))
         {
             setLocation(getX() + 3, getY());
         }
-        if(Greenfoot.isKeyDown("up"))
+        if(Greenfoot.isKeyDown("w"))
         {
             setLocation(getX(), getY() - 3);
         }
-        if(Greenfoot.isKeyDown("down"))
+        if(Greenfoot.isKeyDown("s"))
         {
             setLocation(getX(), getY() + 3);
         }
@@ -50,13 +50,13 @@ public class Crab extends Actor
     // Checks for collisions with other objects
     private void onCollision( )
     {
-        if(isTouching(Worm.class))
+        if(isTouching(Treasure.class))
         {
-            removeTouching(Worm.class);
+            removeTouching(Treasure.class);
             Greenfoot.playSound("slurp.wav");
             
             // Winning the game 
-            if(getWorld().getObjects(Worm.class).size() == 0)
+            if(getWorld().getObjects(Treasure.class).size() == 0)
             {
                 Greenfoot.setWorld(new WinSplash());
                 Greenfoot.playSound("fanfare.wav");
@@ -64,7 +64,7 @@ public class Crab extends Actor
             }
         }
         
-        if(isTouching(Lobster.class))
+        if(isTouching(Mine.class))
         {
             Greenfoot.playSound("au.wav");
             Greenfoot.stop();

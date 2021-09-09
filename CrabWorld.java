@@ -1,5 +1,5 @@
 import greenfoot.*;  // (Actor, World, Greenfoot, GreenfootImage)
-
+import java.lang.Math.*;
 public class CrabWorld extends World
 {
     /**
@@ -11,47 +11,25 @@ public class CrabWorld extends World
         super(560, 560, 1);
         prepare();
     }
-    
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        Crab crab = new Crab();
-        addObject(crab,137,276);
-        Worm worm = new Worm();
-        addObject(worm,332,110);
-        Worm worm2 = new Worm();
-        addObject(worm2,43,52);
-        Worm worm3 = new Worm();
-        addObject(worm3,147,486);
-        Worm worm4 = new Worm();
-        addObject(worm4,551,7);
-        Worm worm5 = new Worm();
-        addObject(worm5,362,432);
-        Worm worm6 = new Worm();
-        addObject(worm6,204,267);
-        Worm worm7 = new Worm();
-        addObject(worm7,80,394);
-        Worm worm8 = new Worm();
-        addObject(worm8,443,299);
-        Lobster lobster = new Lobster();
-        addObject(lobster,460,80);
-        Lobster lobster2 = new Lobster();
-        addObject(lobster2,435,496);
-        removeObject(lobster);
-        Lobster lobster3 = new Lobster();
-        addObject(lobster3,440,102);
-        Lobster lobster4 = new Lobster();
-        addObject(lobster4,103,115);
-        Lobster lobster5 = new Lobster();
-        addObject(lobster5,339,288);
-        Lobster lobster6 = new Lobster();
-        addObject(lobster6,487,198);
-        Lobster lobster7 = new Lobster();
-        addObject(lobster7,32,454);
-        Lobster lobster8 = new Lobster();
-        addObject(lobster8,238,52);
+        Sub sub = new Sub();
+        addObject(sub,137,276);
+        for(int i = 0; i < 7; i++)
+        {
+            Treasure treasure = new Treasure();
+            addObject(treasure, (int) (Math.random() * 560), (int) (Math.random() * 560));
+        }
+        
+        for(int i = 0; i < 7; i++)
+        {
+            Mine mine = new Mine();
+            addObject(mine, (int) (Math.random() * 560), (int) (Math.random() * 560));
+        }
     }
 }
