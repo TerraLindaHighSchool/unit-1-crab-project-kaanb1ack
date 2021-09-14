@@ -10,24 +10,15 @@ public class Sub extends Actor
     //This method repeats the following actions 
     public void act()
     {
-        turnAtEdge();
         checkKeyPress();
         onCollision();
     }
 
     // Turns the Crab at the edge
-    private void turnAtEdge( )
-    {
-        if(isAtEdge())
-        {
-            
-        }
-    }
 
     // Checks for user key presses so user can turn the Crab
     private void checkKeyPress( )
     {
-        
         if(Greenfoot.isKeyDown("a"))
         {
             setLocation(getX() - 3, getY());
@@ -45,6 +36,15 @@ public class Sub extends Actor
             setLocation(getX(), getY() + 3);
         }
         
+        if(Greenfoot.isKeyDown("space"))
+        {
+            fire();
+        }
+    }
+    private void fire()
+    {
+        Torpedo torpedo = new Torpedo();
+        getWorld().addObject(torpedo, getX(), getY());
     }
 
     // Checks for collisions with other objects
@@ -62,6 +62,12 @@ public class Sub extends Actor
                 Greenfoot.playSound("fanfare.wav");
                 Greenfoot.stop();
             }
+        }
+        
+        if(isTouching(EnemySub.class))
+        {
+            Greenfoot.playSound("au.wav");
+            Greenfoot.stop();
         }
         
         if(isTouching(Mine.class))

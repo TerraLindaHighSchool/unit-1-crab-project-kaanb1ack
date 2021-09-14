@@ -1,26 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
+ * Write a description of class Mine here.
  * The Mine will explode the Sub if the Sub touches it.
- * @author: Kaan Black
- * @version: Date 8/31/2021
- */
+ * @author Kaan Black 
+ * @version 9/11/2021 
+   */
 public class Mine extends Actor
 {
-    //This method repeats the following actions 
     public void act()
     {
-        move(3);
-        turnAtEdge();
+        onCollision();
     }
-
-    // Turns the Lobter at the edge
-    private void turnAtEdge( )
+    
+    private void onCollision()
     {
-        if(isAtEdge())
-        {
-            turn(50);
-        }
-        
+       
     }
 }

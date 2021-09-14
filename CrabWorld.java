@@ -10,6 +10,7 @@ public class CrabWorld extends World
     {
         super(560, 560, 1);
         prepare();
+        checkKeyPress();
     }
 
     /**
@@ -19,17 +20,30 @@ public class CrabWorld extends World
     private void prepare()
     {
         Sub sub = new Sub();
-        addObject(sub,137,276);
+        addObject(sub,50,276);
         for(int i = 0; i < 7; i++)
         {
             Treasure treasure = new Treasure();
             addObject(treasure, (int) (Math.random() * 560), (int) (Math.random() * 560));
         }
-        
-        for(int i = 0; i < 7; i++)
+
+        for(int i = 0; i < 5; i++)
         {
-            Mine mine = new Mine();
-            addObject(mine, (int) (Math.random() * 560), (int) (Math.random() * 560));
+            EnemySub enemySub = new EnemySub();
+            addObject(enemySub, (int) (Math.random() * 560), (int) (Math.random() * 560));
         }
+
+        for(int i = 0; i < 15; i++)
+        {
+              Mine mine = new Mine();
+            addObject(mine, (int) (Math.random() * 560), (int) (Math.random() * 560));
+            
+        }
+        
+    }
+    
+    private void checkKeyPress()
+    {
+    
     }
 }
