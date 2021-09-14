@@ -12,11 +12,11 @@ public class EnemySub extends Actor
     {
         move(3);
         turnAtEdge();
-        if(getRotation() >= 180)
+        if(getRotation() > 180)
         {
             setImage("BackwardsEnemySub.png");
         }
-        if(getRotation() < 180)
+        if(getRotation() <= 180)
         {
             setImage("enemySub.png");
         }
