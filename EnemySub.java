@@ -12,32 +12,22 @@ public class EnemySub extends Actor
     {
         move(3);
         turnAtEdge();
-        
+        if(getRotation() >= 180)
+        {
+            setImage("upsidedownteddybear.png");
+        }
+        if(getRotation() < 180)
+        {
+            setImage("teddybear.png");
+        }
     }
 
     // Turns the Lobter at the edge
     private void turnAtEdge( )
     {
-        if(Greenfoot.getRandomNumber(200) < 100)
+        if(isAtEdge())
         {
-            if(isAtEdge())
-            {
-                turn(50);
-            }
-        }
-        else if(Greenfoot.getRandomNumber(200) < 50)
-        {
-            if(isAtEdge())
-            {
-                turn(100);
-            }
-        }
-        else if(Greenfoot.getRandomNumber(200) < 150)
-        {
-            if(isAtEdge())
-            {
-                turn(10);
-            }
+            turn(Greenfoot.getRandomNumber(180)); 
         }
     }
     

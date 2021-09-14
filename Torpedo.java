@@ -17,7 +17,7 @@ public class Torpedo extends Actor
         // Add your action code here.
         move(4);
         onCollision();
-        turnAtEdge();
+        
     }
     
     private void onCollision()
@@ -33,11 +33,5 @@ public class Torpedo extends Actor
         }   
     }
     
-    private void turnAtEdge()
-    {
-        if(isAtEdge())
-        {
-            remove
-        }
-    }
+    
 }
