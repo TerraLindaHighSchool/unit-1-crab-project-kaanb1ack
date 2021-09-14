@@ -28,9 +28,13 @@ public class Torpedo extends Actor
         }   
         if(isTouching(Mine.class))
         {
-            removeTouching(Torpedo.class);
+            
             removeTouching(Mine.class);
-        }   
+        }  
+        if(isAtEdge())
+        {
+            getWorld().removeObjects(getWorld().getObjects(Torpedo.class));
+        }
     }
     
     
