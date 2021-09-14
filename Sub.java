@@ -35,16 +35,21 @@ public class Sub extends Actor
         {
             setLocation(getX(), getY() + 3);
         }
-        
+
         if(Greenfoot.isKeyDown("space"))
         {
             fire();
         }
     }
+
     private void fire()
     {
-        Torpedo torpedo = new Torpedo();
-        getWorld().addObject(torpedo, getX(), getY());
+        if(getWorld().getObjects(Torpedo.class).size() == 0)
+        {
+            Torpedo torpedo = new Torpedo();
+            getWorld().addObject(torpedo, getX(), getY()); 
+        }
+
     }
 
     // Checks for collisions with other objects
@@ -54,7 +59,7 @@ public class Sub extends Actor
         {
             removeTouching(Treasure.class);
             Greenfoot.playSound("slurp.wav");
-            
+
             // Winning the game 
             if(getWorld().getObjects(Treasure.class).size() == 0)
             {
@@ -63,13 +68,13 @@ public class Sub extends Actor
                 Greenfoot.stop();
             }
         }
-        
+
         if(isTouching(EnemySub.class))
         {
             Greenfoot.playSound("au.wav");
             Greenfoot.stop();
         }
-        
+
         if(isTouching(Mine.class))
         {
             Greenfoot.playSound("au.wav");
@@ -77,5 +82,4 @@ public class Sub extends Actor
         }
     }
 }
-
 

@@ -31,6 +31,8 @@ public class Torpedo extends Actor
             
             removeTouching(Mine.class);
         }  
+        
+        
         if(isAtEdge())
         {
             getWorld().removeObjects(getWorld().getObjects(Torpedo.class));
